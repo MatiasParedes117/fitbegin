@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="DesignHub">
+  <meta name="keyword" content="Premium HTML Website Templates">
+  <title>:: DesignHub :: Fitness</title>
+  <link rel="shortcut icon" href="assets/images/favicon/favicon.ico"> <!--[ Favicon]-->
+  <!-- Option 1: Include in HTML -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- LightGallery CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css">
+  <!-- DataTables CSS -->
+  <!--[ project css file  ]-->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!--[ Jquery Core Js ]-->
+  <script src="assets/js/plugins.js"></script>
+</head>
+
+<body data-theme="theme-Fitness" class="has-sticky-header">
+  <header class="aura-header" id="auraHeader">
+    <div class="aura-header__inner">
+      <!-- Branding -->
+      <div class="aura-header__branding">
+        <a href="index.html" class="aura-header__logo">FitBegin</a>
+      </div>
+      <!-- Desktop Nav -->
+      <nav class="aura-header__nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="service.html">Services</a>
+        <a href="team.html">Trainers</a>
+      </nav>
+      <!-- Actions -->
+      <div class="aura-header__actions">
+        <a href="contact.html" class="aura-btn aura-btn--ghost d-none d-md-inline-flex">Bespoke Call</a>
+        <button class="aura-header__toggle" id="drawerToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Drawer -->
+    <div class="aura-mobile-drawer" id="auraMenu" role="dialog" aria-modal="true">
+      <button class="aura-mobile-drawer__close" id="drawerClose">Close</button>
+      <div class="aura-mobile-drawer__links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="service.html">Services</a>
+        <a href="team.html">Trainers</a>
+      </div>
+      <div class="aura-mobile-drawer__actions">
+        <a href="contact.html" class="aura-btn aura-btn--solid">Start Journey</a>
+      </div>
+    </div>
+  </header>
+  <script>
+    (function() {
+      'use strict';
+      const header = document.getElementById("auraHeader");
+      const drawerToggle = document.getElementById("drawerToggle");
+      const drawer = document.getElementById("auraMenu");
+      const drawerClose = document.getElementById("drawerClose");
+      const navLinks = document.querySelectorAll('.aura-header__nav a, .aura-mobile-drawer__links a');
+      // Drawer Control
+      const toggleDrawer = (open) => {
+        drawer.classList.toggle("open", open);
+        drawerToggle.classList.toggle("open", open);
+        header.classList.toggle("aura-drawer-open", open);
+        drawerToggle.setAttribute("aria-expanded", open);
+        document.body.classList.toggle("aura-drawer-open", open);
+      };
+      drawerToggle.addEventListener("click", () => toggleDrawer(!drawer.classList.contains("open")));
+      drawerClose.addEventListener("click", () => toggleDrawer(false));
+      // Get current page
+      let currentPage = window.location.pathname.split("/").pop() || "index.html";
+      // Page mapping (detail pages → parent menu)
+      const pageGroup = {
+        "team-detail.html": "team.html",
+        "blog-details.html": "blog.html",
+        "service-details.html": "service.html"
+      };
+      if (pageGroup[currentPage]) {
+        currentPage = pageGroup[currentPage];
+      }
+      // Active Link
+      navLinks.forEach(link => {
+        const href = link.getAttribute("href");
+        if (href && href.includes(currentPage)) {
+          link.classList.add("active");
+        }
+        link.addEventListener("click", () => toggleDrawer(false));
+      });
+      // ESC close
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") toggleDrawer(false);
+      });
+    })();
+  </script>
+  <div class="app-loader-overlay">
+    <div class="app-loader">
+      <div class="app-loader-letters" id="loader-text">
+        <!-- Letters will be inserted here via JS -->
+      </div>
+    </div>
+  </div>
+  <script>
+    const text = "DesignHub";
+    const container_lg = document.getElementById('loader-text');
+    text.split('').forEach((char, idx) => {
+      const span = document.createElement('span');
+      span.className = 'app-loader-letter';
+      span.style.setProperty('--i', idx);
+      span.textContent = char;
+      container_lg.appendChild(span);
+    });
+  </script>
+  <!-- hero-section -->
+  <section class="margin-bottom-xl">
+    <div class="legal-page-container">
+      <!-- Clean Editorial Hero -->
+      <div class="legal-hero">
+        <!-- Kinetic & Liquid Background -->
+        <div class="kinetic-bg-text">Privacy Policy</div>
+        <div class="hero-glow"></div>
+        <div class="container-lg">
+          <span class="hero-label" data-aos="fade-up">Legal Information</span>
+          <h2 data-aos="reveal-legal" data-aos-delay="200"> Privacy Policy <span>Last updated February 2026</span>
+          </h2>
+        </div>
+      </div>
+      <!-- Content Architecture -->
+      <section class="legal-content-section">
+        <div class="container-lg">
+          <div class="row g-5">
+            <!-- Sidebar Column (Order 2 on Mobile) -->
+            <div class="col-lg-4 order-lg-2">
+              <div class="legal-sidebar sticky-top" style="top: 120px;">
+                <!-- Search Widget -->
+                <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="300">
+                  <h3 class="widget-title h6">Quick Search</h3>
+                  <div class="search-minimal">
+                    <input type="text" placeholder="What are you looking for?">
+                    <button><i class="bi bi-search"></i></button>
+                  </div>
+                </div>
+                <!-- Contact Widget -->
+                <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="400">
+                  <h3 class="widget-title h6">Question?</h3>
+                  <form class="contact-form-minimal">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <textarea rows="3" placeholder="How can we help?" required></textarea>
+                    <button type="submit">Email Support</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- Main Text Column -->
+            <div class="col-lg-8 order-lg-1">
+              <div class="legal-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="legal-item mb-5">
+                  <h3>Types of information we collect online</h3>
+                  <p> We collect various types of information when you use our services. This includes data that helps us identify you personally and tailor your experience to your preferences. Collecting this information allows us to provide you with secure, personalized, and efficient services. </p>
+                  <ul>
+                    <li><strong>Personal Identification Information:</strong> Such as your full name, email address, phone number, and mailing address. This helps us communicate with you and verify your identity.</li>
+                    <li><strong>Payment Information:</strong> Including credit card details or other payment methods, used exclusively for transaction processing and billing purposes. We ensure this data is handled securely in compliance with relevant regulations.</li>
+                    <li><strong>Demographic Details:</strong> Such as your age, gender, language preferences, and location. This data helps us customize content and offers that are relevant to your interests.</li>
+                    <li><strong>Account Credentials:</strong> Usernames and passwords you create to access our services, stored securely to protect your privacy and security.</li>
+                    <li><strong>Preferences and Interests:</strong> Information about your preferences, likes, and browsing behavior within our services to personalize your experience. </li>
+                  </ul>
+                  <p> We collect this information directly from you when you register, fill out forms, or interact with our services. We may also gather data from third-party sources with your consent to enhance our understanding and service quality. </p>
+                </div>
+                <div class="legal-item mb-5">
+                  <h3>Information that may be collected automatically</h3>
+                  <p> In addition to the information you provide directly, certain data is collected automatically when you visit our website or use our applications. This helps us monitor system performance, improve user experience, and detect security issues. </p>
+                  <ul>
+                    <li><strong>IP Address:</strong> Your device's internet protocol address to help identify your approximate location and prevent fraud.</li>
+                    <li><strong>Browser Type and Version:</strong> Details about your browser software to ensure compatibility and optimize functionality.</li>
+                    <li><strong>Operating System:</strong> The type and version of the operating system on your device to help tailor our service performance.</li>
+                    <li><strong>Pages Visited and Time Spent:</strong> Which pages you access and how long you stay on each to understand popular content and improve navigation.</li>
+                    <li><strong>Device Information:</strong> Including device type, screen resolution, and device settings to enhance usability across platforms.</li>
+                    <li><strong>Cookies and Tracking Technologies:</strong> Small data files stored on your device that help remember your preferences and provide personalized content and ads. </li>
+                  </ul>
+                  <p> This data is collected through cookies, web beacons, and similar technologies. You can control or disable cookies via your browser settings, but this may affect your experience on our site. </p>
+                </div>
+                <div class="legal-item">
+                  <h3>How we use your information</h3>
+                  <p> Your information is critical for providing and enhancing our services. We use it responsibly to ensure you receive a seamless, secure, and personalized experience. </p>
+                  <ul>
+                    <li><strong>Provide, Operate, and Maintain Our Services:</strong> Ensuring that our platforms function correctly and securely for all users.</li>
+                    <li><strong>Improve, Personalize, and Expand Our Services:</strong> Using your feedback and usage data to tailor features, offer relevant content, and introduce new functionalities.</li>
+                    <li><strong>Communicate with You:</strong> Sending important updates, promotional offers, and providing customer support to assist with your queries and issues.</li>
+                    <li><strong>Monitor and Analyze Usage and Trends:</strong> Understanding how users interact with our services to optimize performance and user experience.</li>
+                    <li><strong>Legal Compliance:</strong> Complying with applicable laws and regulations, and responding to lawful requests by public authorities.</li>
+                  </ul>
+                  <p> We do not sell your personal information to third parties. We may share data with trusted partners under strict confidentiality agreements solely for service provision and analytics. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+  <!-- footer -->
+  <footer class="nova-footer pt-5 pb-3" id="novaFooter">
+    <!-- Background animation layers -->
+    <div class="nova-footer__glow" aria-hidden="true"></div>
+    <div class="nova-footer__glow nova-footer__glow--two" aria-hidden="true"></div>
+    <div class="nova-footer__glow nova-footer__glow--three" aria-hidden="true"></div>
+    <div class="nova-footer__grid-bg" aria-hidden="true"></div>
+    <div class="nova-footer__content container-lg">
+      <div class="nova-footer__grid row">
+        <!-- Brand Column -->
+        <div class="nova-footer__brand col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <a class="nova-footer__logo" href="index.html">FitBegin</a>
+          <p class="nova-footer__tagline"> Curated journeys, cinematic cars, concierge drivers—engineered for bold, confident explorers. </p>
+          <div class="nova-footer__realtime">
+            <span class="nova-footer__pulse" aria-hidden="true"></span>
+            <div>
+              <small>Live fleet status</small>
+              <span>48 cities</span> <strong>active now</strong>
+            </div>
+          </div>
+          <div class="nova-footer__socials">
+            <a href="privacypolicy.html#" aria-label="Follow on Instagram">IG</a>
+            <a href="privacypolicy.html#" aria-label="Follow on LinkedIn">in</a>
+            <a href="privacypolicy.html#" aria-label="Follow on Behance">Bē</a>
+          </div>
+        </div>
+        <!-- Explore Links -->
+        <div class="nova-footer__links col-lg-2 col-md-3 col-6 mb-5 mb-md-0">
+          <span class="h4">Explore</span>
+          <ul class="list-unstyled">
+            <li><a href="service.html">Fleet Gallery</a></li>
+            <li><a href="service.html">Signature Routes</a></li>
+            <li><a href="service.html">Concierge</a></li>
+            <li><a href="service.html">Sustainability</a></li>
+          </ul>
+        </div>
+        <!-- Company Links -->
+        <div class="nova-footer__links col-lg-2 col-md-3 col-6 mb-5 mb-md-0">
+          <span class="h4">Company</span>
+          <ul class="list-unstyled">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="blog.html">Press & Awards</a></li>
+            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+            <li><a href="term-condition.html">Term & Condition</a></li>
+          </ul>
+        </div>
+        <!-- Newsletter Column -->
+        <div class="nova-footer__newsletter col-lg-4 col-md-6">
+          <span class="h4">Signal Alerts</span>
+          <p>Drop your email for crew-only dropoffs, prototype reveals, and midnight road calls.</p>
+          <form class="nova-footer__form">
+            <input type="email" placeholder="you@email.com" required aria-label="Email address">
+            <button type="submit">Notify</button>
+          </form>
+          <small class="nova-footer__privacy">No spam. Just bespoke invites and route whispers.</small>
+        </div>
+      </div>
+      <!-- Bottom Bar -->
+      <div class="nova-footer__bottom border-top mt-5 pt-4">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <p class="mb-0"> © <span id="novaYear">2026</span> FitBegin. Crafted for motion over stasis. </p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <p class="mb-0">Need a bespoke route? <a href="contact.html">Request a curator call</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      const yearSpan = document.getElementById("novaYear");
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    })();
+  </script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!--[ plugin url ]-->
+  <!-- DataTables JS -->
+  <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

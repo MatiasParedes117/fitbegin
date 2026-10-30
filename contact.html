@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="DesignHub">
+  <meta name="keyword" content="Premium HTML Website Templates">
+  <title>:: DesignHub :: Fitness</title>
+  <link rel="shortcut icon" href="assets/images/favicon/favicon.ico"> <!--[ Favicon]-->
+  <!-- Option 1: Include in HTML -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- LightGallery CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css">
+  <!-- DataTables CSS -->
+  <!--[ project css file  ]-->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!--[ Jquery Core Js ]-->
+  <script src="assets/js/plugins.js"></script>
+</head>
+
+<body data-theme="theme-Fitness" class="has-sticky-header">
+  <header class="aura-header" id="auraHeader">
+    <div class="aura-header__inner">
+      <!-- Branding -->
+      <div class="aura-header__branding">
+        <a href="index.html" class="aura-header__logo">FitBegin</a>
+      </div>
+      <!-- Desktop Nav -->
+      <nav class="aura-header__nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="service.html">Services</a>
+        <a href="team.html">Trainers</a>
+      </nav>
+      <!-- Actions -->
+      <div class="aura-header__actions">
+        <a href="contact.html" class="aura-btn aura-btn--ghost d-none d-md-inline-flex">Bespoke Call</a>
+        <button class="aura-header__toggle" id="drawerToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Drawer -->
+    <div class="aura-mobile-drawer" id="auraMenu" role="dialog" aria-modal="true">
+      <button class="aura-mobile-drawer__close" id="drawerClose">Close</button>
+      <div class="aura-mobile-drawer__links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="service.html">Services</a>
+        <a href="team.html">Trainers</a>
+      </div>
+      <div class="aura-mobile-drawer__actions">
+        <a href="contact.html" class="aura-btn aura-btn--solid">Start Journey</a>
+      </div>
+    </div>
+  </header>
+  <script>
+    (function() {
+      'use strict';
+      const header = document.getElementById("auraHeader");
+      const drawerToggle = document.getElementById("drawerToggle");
+      const drawer = document.getElementById("auraMenu");
+      const drawerClose = document.getElementById("drawerClose");
+      const navLinks = document.querySelectorAll('.aura-header__nav a, .aura-mobile-drawer__links a');
+      // Drawer Control
+      const toggleDrawer = (open) => {
+        drawer.classList.toggle("open", open);
+        drawerToggle.classList.toggle("open", open);
+        header.classList.toggle("aura-drawer-open", open);
+        drawerToggle.setAttribute("aria-expanded", open);
+        document.body.classList.toggle("aura-drawer-open", open);
+      };
+      drawerToggle.addEventListener("click", () => toggleDrawer(!drawer.classList.contains("open")));
+      drawerClose.addEventListener("click", () => toggleDrawer(false));
+      // Get current page
+      let currentPage = window.location.pathname.split("/").pop() || "index.html";
+      // Page mapping (detail pages → parent menu)
+      const pageGroup = {
+        "team-detail.html": "team.html",
+        "blog-details.html": "blog.html",
+        "service-details.html": "service.html"
+      };
+      if (pageGroup[currentPage]) {
+        currentPage = pageGroup[currentPage];
+      }
+      // Active Link
+      navLinks.forEach(link => {
+        const href = link.getAttribute("href");
+        if (href && href.includes(currentPage)) {
+          link.classList.add("active");
+        }
+        link.addEventListener("click", () => toggleDrawer(false));
+      });
+      // ESC close
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") toggleDrawer(false);
+      });
+    })();
+  </script>
+  <div class="app-loader-overlay">
+    <div class="app-loader">
+      <div class="app-loader-letters" id="loader-text">
+        <!-- Letters will be inserted here via JS -->
+      </div>
+    </div>
+  </div>
+  <script>
+    const text = "DesignHub";
+    const container_lg = document.getElementById('loader-text');
+    text.split('').forEach((char, idx) => {
+      const span = document.createElement('span');
+      span.className = 'app-loader-letter';
+      span.style.setProperty('--i', idx);
+      span.textContent = char;
+      container_lg.appendChild(span);
+    });
+  </script>
+  <!-- hero-section -->
+  <section class="margin-bottom-xl">
+    <div class="contactus-two px-md-5 px-3 py-5 position-relative text-white">
+      <div class="overlay"></div>
+      <div class="container-lg position-relative z-2">
+        <div class="row">
+          <div class="col-xl-8 col-lg-10 mt-4">
+            <div class="pt-5">
+              <h2 class="display-4 fw-bold mb-3 text-white">Get In Touch & Start Your Fitness Journey Today</h2>
+              <p class="fs-5 mb-4 text-white">Whether you have questions about our programs, need help choosing the right membership, or want to book a free trial — we’re here to help you achieve your goals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="margin-top-md margin-bottom-xl">
+    <div class="contact-content-two position-relative overflow-hidden px-md-5 px-3">
+      <div class="container-lg position-relative py-md-5">
+        <h2 class="fs-1 text-dark text-center text-uppercase pb-4 position-relative z-1">Contact</h2>
+        <div class="row text-center text-md-start justify-content-center margin-top-lg-1 border-top pt-5">
+          <div class="col-md-4 col-sm-4">
+            <h2 class="text-dark h5">Location:</h2>
+            <p class="mb-0 text-dark opacity-75 fs-6">450 NW Couch Street,<br>Portland, Oregon 97209</p>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <h3 class="text-dark h5">Email us:</h3>
+            <a href="contact.html#" class="mb-0 text-dark opacity-75 text-decoration-none fs-6" title="Email us at name@email.com">name@email.com</a><br>
+            <a href="contact.html#" class="mb-0 text-dark opacity-75 text-decoration-none fs-6" title="Email us at health@example.com">health@example.com</a>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <h3 class="text-dark h5">Call us:</h3>
+            <a href="contact.html#" class="mb-0 text-dark opacity-75 text-decoration-none fs-6" title="Call us at + (123) 1800-567-8990">+ (123) 1800-567-8990</a><br>
+            <a href="contact.html#" class="mb-0 text-dark opacity-75 text-decoration-none fs-6" title="Call us at + (61) 800-567-890">+ (61) 800-567-890</a>
+          </div>
+        </div>
+        <div class="angled-bg-shape"></div>
+      </div>
+    </div>
+  </section>
+  <section class="margin-bottom-xl px-md-5 px-3">
+    <div class="container-lg">
+      <div class="row g-0 bg-dark rounded">
+        <div class="col-lg-6">
+          <div class="card border-0 bg-transparent">
+            <div class="card-body">
+              <form class="pt-3 pb-4">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="form-group text-light fs-6">
+                      <label for="name">Full Name</label>
+                      <input type="text" id="name" name="name" placeholder="Enter your name" class="form-control px-3 py-3  border mt-2">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group text-light fs-6">
+                      <label for="email">Email Address</label>
+                      <input type="email" id="email" name="email" placeholder="Enter your email" class="form-control px-3 py-3 border mt-2">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group text-light fs-6">
+                      <label for="subject">Subject</label>
+                      <input type="text" id="subject" name="text" placeholder="Enter subject" class="form-control px-3 py-3 border mt-2">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group text-light fs-6">
+                      <label for="phone">Phone Number</label>
+                      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" class="form-control px-3 py-3 border mt-2">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group text-light fs-6">
+                      <label for="message">Your Message</label>
+                      <textarea id="message" name="message" rows="2" placeholder="Write your message here" class="form-control px-3 py-3 border mt-2 resize-none"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="mb-0 btn btn-primary rounded-pill fs-6 py-3 px-4 mt-5">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-3 border-start">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086345598245!2d-122.41941568468116!3d37.77492977975888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c04856369%3A0x2fa4f2cb9b1b96a6!2sSan+Francisco!5e0!3m2!1sen!2sin!4v1718000000000!5m2!1sen!2sin" height="475" style="border:0; width: -webkit-fill-available;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="contact">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- footer -->
+  <footer class="nova-footer pt-5 pb-3" id="novaFooter">
+    <!-- Background animation layers -->
+    <div class="nova-footer__glow" aria-hidden="true"></div>
+    <div class="nova-footer__glow nova-footer__glow--two" aria-hidden="true"></div>
+    <div class="nova-footer__glow nova-footer__glow--three" aria-hidden="true"></div>
+    <div class="nova-footer__grid-bg" aria-hidden="true"></div>
+    <div class="nova-footer__content container-lg">
+      <div class="nova-footer__grid row">
+        <!-- Brand Column -->
+        <div class="nova-footer__brand col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <a class="nova-footer__logo" href="index.html">FitBegin</a>
+          <p class="nova-footer__tagline"> Curated journeys, cinematic cars, concierge drivers—engineered for bold, confident explorers. </p>
+          <div class="nova-footer__realtime">
+            <span class="nova-footer__pulse" aria-hidden="true"></span>
+            <div>
+              <small>Live fleet status</small>
+              <span>48 cities</span> <strong>active now</strong>
+            </div>
+          </div>
+          <div class="nova-footer__socials">
+            <a href="contact.html#" aria-label="Follow on Instagram">IG</a>
+            <a href="contact.html#" aria-label="Follow on LinkedIn">in</a>
+            <a href="contact.html#" aria-label="Follow on Behance">Bē</a>
+          </div>
+        </div>
+        <!-- Explore Links -->
+        <div class="nova-footer__links col-lg-2 col-md-3 col-6 mb-5 mb-md-0">
+          <span class="h4">Explore</span>
+          <ul class="list-unstyled">
+            <li><a href="service.html">Fleet Gallery</a></li>
+            <li><a href="service.html">Signature Routes</a></li>
+            <li><a href="service.html">Concierge</a></li>
+            <li><a href="service.html">Sustainability</a></li>
+          </ul>
+        </div>
+        <!-- Company Links -->
+        <div class="nova-footer__links col-lg-2 col-md-3 col-6 mb-5 mb-md-0">
+          <span class="h4">Company</span>
+          <ul class="list-unstyled">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="blog.html">Press & Awards</a></li>
+            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+            <li><a href="term-condition.html">Term & Condition</a></li>
+          </ul>
+        </div>
+        <!-- Newsletter Column -->
+        <div class="nova-footer__newsletter col-lg-4 col-md-6">
+          <span class="h4">Signal Alerts</span>
+          <p>Drop your email for crew-only dropoffs, prototype reveals, and midnight road calls.</p>
+          <form class="nova-footer__form">
+            <input type="email" placeholder="you@email.com" required aria-label="Email address">
+            <button type="submit">Notify</button>
+          </form>
+          <small class="nova-footer__privacy">No spam. Just bespoke invites and route whispers.</small>
+        </div>
+      </div>
+      <!-- Bottom Bar -->
+      <div class="nova-footer__bottom border-top mt-5 pt-4">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <p class="mb-0"> © <span id="novaYear">2026</span> FitBegin. Crafted for motion over stasis. </p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <p class="mb-0">Need a bespoke route? <a href="contact.html">Request a curator call</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      const yearSpan = document.getElementById("novaYear");
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    })();
+  </script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!--[ plugin url ]-->
+  <!-- DataTables JS -->
+  <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

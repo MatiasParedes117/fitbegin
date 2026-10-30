@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="DesignHub">
+  <meta name="keyword" content="Premium HTML Website Templates">
+  <title>:: DesignHub :: Fitness</title>
+  <link rel="shortcut icon" href="assets/images/favicon/favicon.ico"> <!--[ Favicon]-->
+  <!-- Option 1: Include in HTML -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- LightGallery CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css">
+  <!-- DataTables CSS -->
+  <!--[ project css file  ]-->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!--[ Jquery Core Js ]-->
+  <script src="assets/js/plugins.js"></script>
+</head>
+
+<body data-theme="theme-Fitness" class="has-sticky-header">
+  <header class="aura-header" id="auraHeader">
+    <div class="aura-header__inner">
+      <!-- Branding -->
+      <div class="aura-header__branding">
+        <a href="index.html" class="aura-header__logo">FitBegin</a>
+      </div>
+      <!-- Desktop Nav -->
+      <nav class="aura-header__nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="service.html">Services</a>
+        <a href="team.html">Trainers</a>
+      </nav>
+      <!-- Actions -->
+      <div class="aura-header__actions">
+        <a href="contact.html" class="aura-btn aura-btn--ghost d-none d-md-inline-flex">Bespoke Call</a>
+        <button class="aura-header__toggle" id="drawerToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Drawer -->
+    <div class="aura-mobile-drawer" id="auraMenu" role="dialog" aria-modal="true">
+      <button class="aura-mobile-drawer__close" id="drawerClose">Close</button>
+      <div class="aura-mobile-drawer__links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="service.html">Services</a>
+        <a href="team.html">Trainers</a>
+      </div>
+      <div class="aura-mobile-drawer__actions">
+        <a href="contact.html" class="aura-btn aura-btn--solid">Start Journey</a>
+      </div>
+    </div>
+  </header>
+  <script>
+    (function() {
+      'use strict';
+      const header = document.getElementById("auraHeader");
+      const drawerToggle = document.getElementById("drawerToggle");
+      const drawer = document.getElementById("auraMenu");
+      const drawerClose = document.getElementById("drawerClose");
+      const navLinks = document.querySelectorAll('.aura-header__nav a, .aura-mobile-drawer__links a');
+      // Drawer Control
+      const toggleDrawer = (open) => {
+        drawer.classList.toggle("open", open);
+        drawerToggle.classList.toggle("open", open);
+        header.classList.toggle("aura-drawer-open", open);
+        drawerToggle.setAttribute("aria-expanded", open);
+        document.body.classList.toggle("aura-drawer-open", open);
+      };
+      drawerToggle.addEventListener("click", () => toggleDrawer(!drawer.classList.contains("open")));
+      drawerClose.addEventListener("click", () => toggleDrawer(false));
+      // Get current page
+      let currentPage = window.location.pathname.split("/").pop() || "index.html";
+      // Page mapping (detail pages → parent menu)
+      const pageGroup = {
+        "team-detail.html": "team.html",
+        "blog-details.html": "blog.html",
+        "service-details.html": "service.html"
+      };
+      if (pageGroup[currentPage]) {
+        currentPage = pageGroup[currentPage];
+      }
+      // Active Link
+      navLinks.forEach(link => {
+        const href = link.getAttribute("href");
+        if (href && href.includes(currentPage)) {
+          link.classList.add("active");
+        }
+        link.addEventListener("click", () => toggleDrawer(false));
+      });
+      // ESC close
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") toggleDrawer(false);
+      });
+    })();
+  </script>
+  <div class="app-loader-overlay">
+    <div class="app-loader">
+      <div class="app-loader-letters" id="loader-text">
+        <!-- Letters will be inserted here via JS -->
+      </div>
+    </div>
+  </div>
+  <script>
+    const text = "DesignHub";
+    const container_lg = document.getElementById('loader-text');
+    text.split('').forEach((char, idx) => {
+      const span = document.createElement('span');
+      span.className = 'app-loader-letter';
+      span.style.setProperty('--i', idx);
+      span.textContent = char;
+      container_lg.appendChild(span);
+    });
+  </script>
+  <!-- hero-section -->
+  <section class="margin-bottom-xl">
+    <div class="bloglisting-two">
+      <div class="video-background">
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline title="Fitness motivation and training video background">
+            <source src="assets/images/fitbegin/blog.mp4" type="video/mp4">
+          </video>
+          <div class="video-overlay"></div>
+        </div>
+        <div class="video-content px-3 px-md-5 py-5 mt-5">
+          <div class="container-lg">
+            <div class="row">
+              <div class="col-xl-8 col-lg-10 text-start">
+                <div class="card bg-transparent border-0 mb-3 pt-4">
+                  <div class="card-body p-0">
+                    <h2 class="text-white">Power Up: Fitness Tips That Actually Work</h2>
+                    <p class="text-white opacity-75 fs-5"> Your source for fitness insights, nutrition tips, and inspiring stories. Your body deserves more than a quick fix. </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="margin-bottom-xl margin-top-md px-md-5 px-3">
+    <div class="blog-hero-header">
+      <img src="assets/images/fitbegin/blogdetail1.png" class="hero-img" alt="Blog Post Cover" id="heroParallax">
+    </div>
+    <div class="blogdetail-two">
+      <div class="container-lg">
+        <div class="row justify-content-center">
+          <div class="col-xl-10">
+            <!-- Premium Glass Title Card 2.0 -->
+            <div class="blog-glass-card-2 fade-in-up">
+              <div class="d-flex align-items-center mb-4">
+                <span class="category-tag mb-0" style="background: var(--primary-gradient); padding: 0.5rem 1.25rem; color: white; border-radius: 50px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Bio-Mechanics Report</span>
+                <div class="ms-auto social-share-mini d-none d-md-flex">
+                  <a href="blog-details.html#" class="btn btn-light btn-sm rounded-pill px-3 me-2 border"><i class="bi bi-heart me-1"></i> Like</a>
+                  <a href="blog-details.html#" class="btn btn-light btn-sm rounded-pill px-3 border"><i class="bi bi-bookmark me-1"></i> Save</a>
+                </div>
+              </div>
+              <h1 class="blog-title display-3 fw-black text-dark mb-4" style="line-height: 1.1; letter-spacing: -0.02em;">The Science of Aerobic Thresholds: Beyond Basic Cardio Mastery</h1>
+              <div class="meta-info d-flex align-items-center flex-wrap" style="color: #64748b; font-size: 0.95rem; font-weight: 500; gap: 1.5rem;">
+                <div class="d-flex align-items-center me-2">
+                  <img src="assets/images/avatar/avatar9.png" alt="Author" class="rounded-circle me-2" style="width: 35px; height: 35px; object-fit: cover;">
+                  <span class="text-dark fw-bold">DesignHub Editorial</span>
+                </div>
+                <span><i class="bi bi-calendar3 me-2 text-primary"></i> July 12, 2026</span>
+                <span><i class="bi bi-clock me-2 text-primary"></i> 12 Min Read</span>
+              </div>
+            </div>
+            <div class="row mt-5 pt-lg-5">
+              <!-- Left Sidebar: Table of Contents -->
+              <div class="col-lg-3 d-none d-lg-block">
+                <div class="sticky-toc-wrap">
+                  <div class="toc-title">Table of Contents</div>
+                  <nav id="toc">
+                    <a href="blog-details.html#intro" class="toc-link active">Introduction</a>
+                    <a href="blog-details.html#science" class="toc-link">The Physics of Cardio</a>
+                    <a href="blog-details.html#workouts" class="toc-link">Top Protocols</a>
+                    <a href="blog-details.html#mindset" class="toc-link">Consistency & Mindset</a>
+                    <a href="blog-details.html#newsletter" class="toc-link">Join the Community</a>
+                  </nav>
+                </div>
+              </div>
+              <!-- Main Article Flow -->
+              <div class="col-lg-9 ps-lg-5">
+                <article class="editorial-layout" id="articleContent">
+                  <section id="intro">
+                    <p class="drop-cap">For many, the journey to peak physical condition begins with a single word: consistency. Cardiovascular exercise is not merely a method for burning calories; it is a fundamental pillar of human vitality. By challenging the heart and lungs, we unlock a cascade of physiological benefits that extend far beyond the gym floor.</p>
+                    <p>In this comprehensive guide, we delve into the mechanics of fat oxidation and explore why specific rhythmic movements can fundamentally transform your metabolic profile. We'll look at the latest research and provide actionable steps to integrate these routines into your daily life.</p>
+                  </section>
+                  <section id="science" class="mt-5 pt-4">
+                    <h2 class="text-dark fw-black mb-4 h1">The Physics of Fat Oxidation</h2>
+                    <p>Fat loss is a chemical process. When perform steady-state or high-intensity intervals, your body demands energy. This energy is harvested from stored triglycerides, which are broken down into fatty acids and glycerol. The efficiency of this process is governed by your cardiovascular ceiling and your metabolic flexibility.</p>
+                    <div class="premium-quote my-5 fade-in-up">
+                      <i class="bi bi-quote"></i>
+                      <p>“Movement is a medicine for creating change in a person's physical, emotional, and mental states. It is the architect of metabolic health.”</p>
+                    </div>
+                    <p>Studies have shown that individuals who combine strength training with strategic cardio sessions see a 30% increase in fat oxidation compared to those who focus on a single modality. This "interference effect" is largely a myth when routines are properly programmed for recovery.</p>
+                  </section>
+                  <section id="workouts" class="mt-5">
+                    <h2 class="text-dark fw-bold mb-4 h4">Superior Protocol Selection</h2>
+                    <div class="feature-pill-list list-group" data-stagger>
+                      <div class="list-group-item d-flex flex-sm-wrap align-items-center fade-in-up">
+                        <i class="bi bi-lightning-charge-fill text-warning me-4"></i>
+                        <div>
+                          <h3 class="mb-1 fw-bold h6">Interval Precision (HIIT)</h3>
+                          <p class="mb-0 small text-muted">Leverage EPOC (Excess Post-exercise Oxygen Consumption) for 24-hour metabolic fire.</p>
+                        </div>
+                      </div>
+                      <div class="list-group-item d-flex flex-sm-wrap align-items-center fade-in-up">
+                        <i class="bi bi-moisture text-info me-4"></i>
+                        <div>
+                          <h3 class="mb-1 fw-bold h6">Hydraulic Resistance</h3>
+                          <p class="mb-0 small text-muted">Utilize swimming and rowing to engage 85% of your muscle mass per stroke.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <!-- Newsletter Interstitial -->
+                  <section id="newsletter" class="newsletter-box mt-5 fade-in-up">
+                    <h3>Transform Your Inbox</h3>
+                    <p class="text-light opacity-75">Join 25,000+ athletes receiving weekly science-backed training protocols and recovery tips.</p>
+                    <div class="row justify-content-center">
+                      <div class="col-md-10">
+                        <div class="input-group">
+                          <input type="email" class="form-control" placeholder="Enter your email address...">
+                          <button class="btn btn-dark px-4" type="button">Subscribe Now</button>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <section id="mindset" class="mt-5">
+                    <h3 class="text-dark fw-black mb-4 h3">The Mindset of Mastery</h3>
+                    <p>Mastery is not about the spectacular. It is about the mundane done with absolute precision. Whether you are running on a treadmill or cycling through mountain trails, the mental resilience built during those final minutes of a difficult session is what separates the elite from the average.</p>
+                    <p>It’s about showing up when you don’t feel like it, and pushing through the biological signals that tell you to stop. This is where true growth—both physical and psychological—occurs.</p>
+                  </section>
+                  <!-- Social Share & Author -->
+                  <div class="social-share-wrap fade-in-up">
+                    <span class="share-label">Share Knowledge</span>
+                    <div class="d-flex flex-wrap gap-3">
+                      <a href="blog-details.html#" class="share-btn"><i class="bi bi-facebook"></i></a>
+                      <a href="blog-details.html#" class="share-btn"><i class="bi bi-twitter-x"></i></a>
+                      <a href="blog-details.html#" class="share-btn"><i class="bi bi-linkedin"></i></a>
+                      <a href="blog-details.html#" class="share-btn"><i class="bi bi-link-45deg"></i></a>
+                    </div>
+                  </div>
+                  <div class="author-bio-card fade-in-up">
+                    <img src="assets/images/fitbegin/team1.png" alt="Author" class="author-img">
+                    <div class="author-info">
+                      <h4 class="h5">Alex Rivers</h4>
+                      <p>Senior Performance Coach and Bio-Mechanics Researcher. Alex has spent over 15 years helping athletes optimize their cardiovascular health through data-driven training modules and recovery science.</p>
+                      <div class="d-flex gap-3">
+                        <a href="team-detail.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-bold">Follow Alex <i class="bi bi-plus-lg ms-1"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Ultimate Page Logic -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const progress = document.getElementById("readingProgress");
+        const hero = document.getElementById("heroParallax");
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const sections = document.querySelectorAll('section[id]');
+        window.onscroll = function() {
+          // Progress Bar Logic
+          let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+          let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          let scrolled = (winScroll / height) * 100;
+          if (progress) progress.style.width = scrolled + "%";
+          // Subtle Parallax Logic
+          if (hero) {
+            hero.style.transform = `translateY(${winScroll * 0.25}px)`;
+          }
+          // Scrollspy Logic for TOC
+          let current = "";
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= sectionTop - 150) {
+              current = section.getAttribute("id");
+            }
+          });
+          tocLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").includes(current)) {
+              link.classList.add("active");
+            }
+          });
+        };
+      });
+    </script>
+  </section>
+  <!-- footer -->
+  <footer class="nova-footer pt-5 pb-3" id="novaFooter">
+    <!-- Background animation layers -->
+    <div class="nova-footer__glow" aria-hidden="true"></div>
+    <div class="nova-footer__glow nova-footer__glow--two" aria-hidden="true"></div>
+    <div class="nova-footer__glow nova-footer__glow--three" aria-hidden="true"></div>
+    <div class="nova-footer__grid-bg" aria-hidden="true"></div>
+    <div class="nova-footer__content container-lg">
+      <div class="nova-footer__grid row">
+        <!-- Brand Column -->
+        <div class="nova-footer__brand col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <a class="nova-footer__logo" href="index.html">FitBegin</a>
+          <p class="nova-footer__tagline"> Curated journeys, cinematic cars, concierge drivers—engineered for bold, confident explorers. </p>
+          <div class="nova-footer__realtime">
+            <span class="nova-footer__pulse" aria-hidden="true"></span>
+            <div>
+              <small>Live fleet status</small>
+              <span>48 cities</span> <strong>active now</strong>
+            </div>
+          </div>
+          <div class="nova-footer__socials">
+            <a href="blog-details.html#" aria-label="Follow on Instagram">IG</a>
+            <a href="blog-details.html#" aria-label="Follow on LinkedIn">in</a>
+            <a href="blog-details.html#" aria-label="Follow on Behance">Bē</a>
+          </div>
+        </div>
+        <!-- Explore Links -->
+        <div class="nova-footer__links col-lg-2 col-md-3 col-6 mb-5 mb-md-0">
+          <span class="h4">Explore</span>
+          <ul class="list-unstyled">
+            <li><a href="service.html">Fleet Gallery</a></li>
+            <li><a href="service.html">Signature Routes</a></li>
+            <li><a href="service.html">Concierge</a></li>
+            <li><a href="service.html">Sustainability</a></li>
+          </ul>
+        </div>
+        <!-- Company Links -->
+        <div class="nova-footer__links col-lg-2 col-md-3 col-6 mb-5 mb-md-0">
+          <span class="h4">Company</span>
+          <ul class="list-unstyled">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="blog.html">Press & Awards</a></li>
+            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+            <li><a href="term-condition.html">Term & Condition</a></li>
+          </ul>
+        </div>
+        <!-- Newsletter Column -->
+        <div class="nova-footer__newsletter col-lg-4 col-md-6">
+          <span class="h4">Signal Alerts</span>
+          <p>Drop your email for crew-only dropoffs, prototype reveals, and midnight road calls.</p>
+          <form class="nova-footer__form">
+            <input type="email" placeholder="you@email.com" required aria-label="Email address">
+            <button type="submit">Notify</button>
+          </form>
+          <small class="nova-footer__privacy">No spam. Just bespoke invites and route whispers.</small>
+        </div>
+      </div>
+      <!-- Bottom Bar -->
+      <div class="nova-footer__bottom border-top mt-5 pt-4">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <p class="mb-0"> © <span id="novaYear">2026</span> FitBegin. Crafted for motion over stasis. </p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <p class="mb-0">Need a bespoke route? <a href="contact.html">Request a curator call</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      const yearSpan = document.getElementById("novaYear");
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    })();
+  </script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!--[ plugin url ]-->
+  <!-- DataTables JS -->
+  <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
